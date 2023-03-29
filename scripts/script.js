@@ -4,12 +4,14 @@ let button = document.querySelector('#clickMe');
 function alertUser()
 {
     alert('you clicked!')
+    button.removeEventListener('click', alterUser)//remove the alert message, make sure one show once
 }
 //3.add the function as event listener
 button.addEventListener('click',alertUser);//if use alertUser(), the function will be called ONLY once
 // button.addEventListener('click', () =>{
 //     alert('Button clicked, Hello!')
 // })
+//#####button.addEventListener('click',alertUser,{once:true})//second option to remove listener with object true
 
 
 
