@@ -13,6 +13,25 @@ button.addEventListener('click',alertUser);//if use alertUser(), the function wi
 // })
 //#####button.addEventListener('click',alertUser,{once:true})//second option to remove listener with object true
 
+function addNewElements()
+{
+    //createelement *2 ->button, p
+    const newPara = document.createElement("p");
+    const newButton = document.createElement("button");
+    //change color to new button when mouseover
+    newButton.addEventListener("mouseover", changeBGPink);
+    //appendChild*2
+    document.body.appendChild(newPara);
+    document.body.appendChild(newButton);
+    //add textContent*2
+    newButton.textContent = "purple";
+    newPara.textContent = "something"
+
+}
+
+button.addEventListener("click", addNewElements)
+
+
 function changeBGPink()
 {
     document.body.style.background='pink';
@@ -56,13 +75,25 @@ function changeBGGreen(event)
     console.log(event.target)
     //change the style of event.target to have green bg
     event.target.style.background = 'green'
-    if(event.target.tagName === "Button"){
+    if(event.target.tagName === "Button"){//newPara will not turn green even if we add eventListener,but only button
         event.target.classList.add('greenBG')
     }
 }
 buttonContainer.addEventListener('click',changeBGGreen);
 //3.add the func as event listener
 
+
+//2.define a function to change textcolor
+function changeTextColor(event)
+{
+    //if red button is clicked -> the text color should be red
+    event.target.style.color = event.target.textContent;
+    event.target.classList.add(event.target.textContent) 
+
+}
+
+//3.event listener
+buttonContainer.addEventListener("click",changeTextColor);
 
 // let button = document.querySelector("button");
 //   function once() {
@@ -101,4 +132,4 @@ buttonContainer.addEventListener('click',changeBGGreen);
 // });
 
 
-	
+
